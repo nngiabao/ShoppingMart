@@ -1,6 +1,8 @@
-package com.shoppingweb.Service;
+package com.shoppingweb.Service.impl;
 
-public class UserServiceImp implements UserService{
+import com.shoppingweb.Service.UserService;
+
+public class UserServiceImp implements UserService {
     @Override
     public void registerUser() {
 

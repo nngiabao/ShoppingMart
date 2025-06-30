@@ -1,26 +1,33 @@
+-- Insert Categories first
+INSERT INTO category (name) VALUES
+('Electronics'),
+('Office Supplies'),
+('Furniture'),
+('Accessories'),
+('Storage');
 
--- 20 Products
-INSERT INTO product (name, description, price) VALUES
-('Laptop', '14 inch business laptop', 799.99),
-('Headphones', 'Noise cancelling wireless headphones', 199.99),
-('Smartphone', 'Latest Android smartphone', 699.99),
-('Monitor', '27 inch 4K monitor', 299.99),
-('Keyboard', 'Mechanical keyboard with RGB', 89.99),
-('Mouse', 'Wireless ergonomic mouse', 49.99),
-('Printer', 'All-in-one wireless printer', 129.99),
-('Camera', 'DSLR camera for professionals', 999.99),
-('Tablet', '10 inch Android tablet', 249.99),
-('Smartwatch', 'Fitness and health tracker', 149.99),
-('Desk', 'Wooden office desk', 199.99),
-('Chair', 'Ergonomic office chair', 229.99),
-('Speaker', 'Bluetooth portable speaker', 59.99),
-('Router', 'Wi-Fi 6 router', 139.99),
-('SSD', '1TB solid state drive', 119.99),
-('USB Drive', '128GB USB 3.0', 24.99),
-('Webcam', '1080p streaming webcam', 69.99),
-('Power Bank', '10000mAh portable charger', 39.99),
-('Microphone', 'Podcasting microphone', 89.99),
-('Lamp', 'LED desk lamp with USB port', 29.99);
+-- 20 Products with complete data matching the schema
+INSERT INTO product (name, description, price, image_url, category_id, stock_quantity, is_active) VALUES
+('Laptop', '14 inch business laptop with high performance', 799.99, '/images/product-thumb-1.png', 1, 15, true),
+('Headphones', 'Noise cancelling wireless headphones for immersive audio', 199.99, '/images/product-thumb-2.png', 1, 25, true),
+('Smartphone', 'Latest Android smartphone with advanced features', 699.99, '/images/product-thumb-11.jpg', 1, 30, true),
+('Monitor', '27 inch 4K monitor for professional work', 299.99, '/images/product-thumb-12.jpg', 1, 12, true),
+('Keyboard', 'Mechanical keyboard with RGB lighting', 89.99, '/images/product-thumb-13.jpg', 4, 40, true),
+('Mouse', 'Wireless ergonomic mouse for comfortable use', 49.99, '/images/product-thumb-14.jpg', 4, 50, true),
+('Printer', 'All-in-one wireless printer for home and office', 129.99, '/images/product-thumb-1.png', 2, 8, true),
+('Camera', 'DSLR camera for professional photography', 999.99, '/images/product-thumb-2.png', 1, 5, true),
+('Tablet', '10 inch Android tablet for entertainment', 249.99, '/images/product-thumb-11.jpg', 1, 20, true),
+('Smartwatch', 'Fitness and health tracker with smart features', 149.99, '/images/product-thumb-12.jpg', 4, 35, true),
+('Desk', 'Wooden office desk with spacious surface', 199.99, '/images/product-thumb-13.jpg', 3, 10, true),
+('Chair', 'Ergonomic office chair for long hours', 229.99, '/images/product-thumb-14.jpg', 3, 15, true),
+('Speaker', 'Bluetooth portable speaker with excellent sound', 59.99, '/images/product-thumb-1.png', 1, 45, true),
+('Router', 'Wi-Fi 6 router for fast internet connection', 139.99, '/images/product-thumb-2.png', 1, 18, true),
+('SSD', '1TB solid state drive for fast storage', 119.99, '/images/product-thumb-11.jpg', 5, 25, true),
+('USB Drive', '128GB USB 3.0 flash drive', 24.99, '/images/product-thumb-12.jpg', 5, 60, true),
+('Webcam', '1080p streaming webcam for video calls', 69.99, '/images/product-thumb-13.jpg', 1, 22, true),
+('Power Bank', '10000mAh portable charger for devices', 39.99, '/images/product-thumb-14.jpg', 4, 40, true),
+('Microphone', 'Professional podcasting microphone', 89.99, '/images/product-thumb-1.png', 1, 12, true),
+('Lamp', 'LED desk lamp with USB charging port', 29.99, '/images/product-thumb-2.png', 2, 30, true);
 
 -- 20 Users
 INSERT INTO users (name, email, password) VALUES

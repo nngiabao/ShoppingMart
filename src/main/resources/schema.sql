@@ -1,11 +1,27 @@
+SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS order_item, orders, cart_item, product, users;
+DROP TABLE IF EXISTS blog;
+DROP TABLE IF EXISTS order_item, orders, cart_item, product, users, category;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE category (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
 
 CREATE TABLE product (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
     description TEXT,
-    price DOUBLE
+    price DOUBLE,
+    image_url VARCHAR(255),
+    category_id BIGINT,
+    stock_quantity INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
 CREATE TABLE users (

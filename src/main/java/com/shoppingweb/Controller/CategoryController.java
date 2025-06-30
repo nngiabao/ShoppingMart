@@ -15,13 +15,11 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
     //
-    @GetMapping("/")
+    @GetMapping("/categories")
     public String getAllCategory(Model model){
         //
-        List<Category> categoryList = categoryService.getAllCategories();
-         //send data to homepage
-        model.addAttribute("categoryList",categoryList);
-        return "category";
+
+        return "index";
     }
 
 
