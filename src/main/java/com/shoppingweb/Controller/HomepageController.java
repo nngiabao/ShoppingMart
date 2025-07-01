@@ -33,6 +33,14 @@ public class HomepageController {
         //
         return "index";
     }
-    //
+    //shop page
+    @GetMapping("/shop")
+    public String shop(Model model){
+        //load products
+        List<Product> productList = productService.getAllProducts();
+        System.out.println("size: "+productList.size());
+        model.addAttribute("productList",productList);
+        return "shop";
+    }
 
 }
