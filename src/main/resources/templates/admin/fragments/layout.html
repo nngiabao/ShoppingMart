@@ -1,0 +1,18 @@
+<!-- fragments/layout.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, title)">
+<head>
+    <th:block th:replace="admin/fragments/header :: header(${title})"></th:block>
+</head>
+<body>
+
+<!-- Page content -->
+<div th:replace="${content}">
+
+</div>
+<th:block th:replace="admin/fragments/footer :: footer"></th:block>
+<!-- Footer -->
+
+
+</body>
+</html>

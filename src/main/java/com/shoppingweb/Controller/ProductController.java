@@ -20,18 +20,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    //load followed by page
-    @GetMapping("/shop/{pageNo}")
-    //public String shop(@PathVariable int pageNo, Model model) {
-    public String shop(@PathVariable (value="pageNo") int pageNo, Model model) {
-        int pageSize = 9; // numbers of products in 1 page
-        //this is from Repository
-        Page<Product> page = productService.getProductByPage(pageNo, pageSize);
-        List<Product> listProducts = page.getContent();
+    @GetMapping("/product/{id}")
+    public String showProduct(@PathVariable int id, Model model) {
         //
-        model.addAttribute("listProduct", listProducts);
-        model.addAttribute("page", page);//current page
-        model.addAttribute("pageSize", pageSize);//total page
-        return "shop";
+         //
+        return "shop-detail";
     }
+
 }

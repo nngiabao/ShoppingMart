@@ -25,6 +25,8 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+
+
     @Override
     public Page<Product> getProductByPage(int pageNo, int pageSize){
         //we start from 0 => minus 1

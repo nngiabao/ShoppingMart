@@ -1,10 +1,21 @@
 <!-- pagination -->
-<div class="col-12" th:fragment="pagination(pageSize,totalPages)">
+<div class="col-12" th:fragment="pagination(pageNo, pageSize, totalPages)">
     <div class="pagination d-flex justify-content-center mt-5">
-        <a href="#" class="rounded">&laquo;</a>
-        <a th:each="i : ${#number.seuqence(1,10)}" th:text
-            th:href="@{'shop/page/'+ ${i}}"
-            th:text="${i}"></a>
-        <a href="#" class="rounded">&raquo;</a>
+        <!-- Previous Arrow -->
+        <a th:href="@{'/shop/page/' + (${pageNo} - 1)}"
+           th:classappend="${pageNo == 1} ? ' disabled' : ''"
+           class="rounded">&laquo;</a>
+
+        <!-- Page Numbers -->
+        <a th:each="i : ${#numbers.sequence(1, totalPages)}"
+           th:href="@{'/shop/page/' + ${i}}"
+           th:text="${i}"
+           th:class="'rounded' + (${i} == ${pageNo} ? ' active' : '')">
+        </a>
+
+        <!-- Next Arrow -->
+        <a th:href="@{'/shop/page/' + (${pageNo} + 1)}"
+           th:classappend="${pageNo == totalPages} ? ' disabled' : ''"
+           class="rounded">&raquo;</a>
     </div>
 </div>

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('Products')">
-
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout(~{::body}, 'Home')">
 
 <body>
 
@@ -292,11 +290,11 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="row g-4 justify-content-center">
-                            <th:block th:each="product : ${productList}">
+                            <th:block th:each="product : ${listProduct}">
                                 <div th:replace="fragments/product-card :: productCard(${product})"></div>
                             </th:block>
                             <div>
-                                <th:block th:replace="fragments/paging :: pagination()"></th:block>
+                               <th:block th:replace="fragments/paging :: pagination(pageNo=${currentPage}, pageSize=${pageSize}, totalPages=${totalPages})"></th:block>
                             </div>
                         </div>
                     </div>
